@@ -7,7 +7,17 @@ package main;
 
 public enum Direction {
 
-	UP, LEFT, DOWN, RIGHT;
+	UP ("u "), LEFT("l "), DOWN("d "), RIGHT("r ");
+	
+	private String directionToAppend; //String value that is used to write a path in PathBuilder
+	
+	private Direction(String directionToAppend) {
+		this.directionToAppend = directionToAppend;
+	}
+	
+	public String toAppend() {
+		return this.directionToAppend;
+	}
 
 	public Direction switchToRight() {
 		Direction returnable = null;
