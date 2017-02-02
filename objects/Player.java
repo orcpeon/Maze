@@ -11,10 +11,16 @@ public class Player {
 	private int x;
 	private int y;
 	private Direction direction;
+	private int boundX; //basically the length of a maze >
+	private int boundY; //height of a maze ^
 
-	public Player() {
+	//get boundary values from the Maze class on creation (i. e. create Maze first, then get values-1 (enumeration starts from 0) and pass them to the constructor
+	//player cannot move beyond boundary values
+	public Player(int boundX, int boundY) {  
 		x = 0;
 		y = 0;
+		this.boundX = boundX;
+		this.boundY = boundY;
 	}
 
 	public int getX() {
@@ -32,6 +38,15 @@ public class Player {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
+	public int getBoundX() {
+		return boundX;
+	}
+
+	public int getBoundY() {
+		return boundY;
+	}
+
 
 	public Direction getDirection() {
 		return direction;
@@ -57,9 +72,26 @@ public class Player {
 		}
 	}
 	
+	public void moveForward() {
+		if (direction==Direction.UP) {
+			y--;
+		} else if (direction==Direction.LEFT) {
+			x--;
+		} else if (direction==Direction.DOWN) {
+			y++;
+		} else if (direction==Direction.RIGHT) {
+			x++;
+		}		
+	}
+	
+	
+	
+	
+	
 	//Encapsulate maze and get coordinates of surrounding points, check for passable points
 	public void getPossibleDirections() {
 		
 	}
+	
 
 }
