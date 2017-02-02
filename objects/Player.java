@@ -56,6 +56,7 @@ public class Player {
 		this.direction = direction;
 	}
 
+	//for player input
 	public void move(char dir) {
 		if (dir == 'u') {
 			y--;
@@ -72,7 +73,8 @@ public class Player {
 		}
 	}
 	
-	public void moveForward() {
+	//for solving algorithm
+	public void moveInDirection() {
 		if (direction==Direction.UP) {
 			y--;
 		} else if (direction==Direction.LEFT) {
@@ -88,10 +90,6 @@ public class Player {
 	
 	
 	
-	//Encapsulate maze and get coordinates of surrounding points, check for passable points
-	public void getPossibleDirections() {
-		
-	}
-	
+
 
 }

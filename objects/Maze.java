@@ -33,7 +33,7 @@ public class Maze {
 		return maze[row].length;
 	}
 	
-	public int getHeight(int col) {
+	public int getHeight() {
 		return maze.length;
 	}
 	

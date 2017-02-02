@@ -23,7 +23,7 @@ public class WallFollower {
 
 	// check if player can turn right, depending
 	// on his direction
-	public boolean canMoveRight() { 
+	private boolean canMoveRight() { 
 		int currentY = player.getY();
 		int currentX = player.getX();
 		Direction currentDir = player.getDirection();
@@ -53,7 +53,7 @@ public class WallFollower {
 
 	// check if player can move in his current direction
 	// used if canTurnRight==false
-	public boolean canMoveForward() {
+	private boolean canMoveForward() {
 
 		int currentY = player.getY();
 		int currentX = player.getX();
@@ -84,7 +84,7 @@ public class WallFollower {
 
 	// check if player can move to the left
 	// used if cannot turn right and cannot move forward
-	public boolean canMoveLeft() {
+	private boolean canMoveLeft() {
 
 		int currentY = player.getY();
 		int currentX = player.getX();
@@ -113,14 +113,26 @@ public class WallFollower {
 		return false;
 	}
 	
+	
+	private boolean isDeadEnd() {
+		return (!canMoveRight() && !canMoveForward() && !canMoveLeft());		
+	}
+	
+	
+	//setting the direction in which player will later move
 	public void setPlayerDirection() {
-		if (canMoveRight()) {
-			player.setDirection(Direction.RIGHT);
+		if (isDeadEnd()) {
+			player.getDirection().reverse(); //direction is reversed in only one situation: dead end
+			maze.getPoint(player.getY(), player.getX()).setPassable(false);  //so in order to avoid the infinite loop we're marking the point unpassable			
+		} else	if (canMoveRight()) {
+			player.getDirection().switchToRight();
 		} else if (!canMoveRight() && canMoveForward()) {
 			return;
 		} else if (!canMoveRight() && !canMoveForward() && canMoveLeft()) {
-			player.setDirection(Direction.LEFT);
-		}
+			player.getDirection().switchToLeft();
+		} 
 	}
 
+	
+	
 }
