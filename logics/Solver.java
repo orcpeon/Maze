@@ -24,11 +24,10 @@ public class Solver {
 	
 	
 	//one player step
-	public void step() {  //goes on untill player reaches the finish
+	public void step() {  //goes on until player reaches the finish
 		
 		while(true) {			
-		if (isSolved()) {
-			
+		if (isSolved()) {			
 			break;
 		}
 		

@@ -12,7 +12,7 @@ public class Cycle {
 	private Solver solver;
 	private PathBuilder log;
 
-	public Cycle(Solver solver, PathBuilder log, PathStorage storage) {
+	public Cycle(Solver solver, PathBuilder log) {
 		this.solver = solver;
 		this.log = log;
 	}

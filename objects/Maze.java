@@ -14,15 +14,14 @@ import fileutilities.FileConverter;
 
 public class Maze {
 	
-	private int length;
-	private int height;
 	private Point[][] maze;
 	
 	
 	public Maze(File file) {		
 		FileConverter fc = new FileConverter(file);
 		fc.convert();
-		maze = fc.getPoints();		
+		maze = fc.getPoints();	
+		System.out.println(maze); //DELETE LATER
 	}
 	
 	public Point getPoint(int x, int y) {

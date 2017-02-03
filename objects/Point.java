@@ -10,8 +10,7 @@ public class Point {
 	private int x;
 	private int y;
 	private boolean isPassable;
-	
-	
+
 	public Point(int x, int y, boolean isPassable) {
 		this.x = x;
 		this.y = y;
@@ -37,9 +36,15 @@ public class Point {
 	public boolean getPassable() {
 		return isPassable;
 	}
-	
+
 	public void setPassable(boolean passability) {
 		isPassable = passability;
 	}
-	
+
+	// DELETE LATER
+	@Override
+	public String toString() {
+		return ".";
+	}
+
 }
