@@ -9,17 +9,13 @@ import java.util.ArrayList;
 
 public class PathStorage {
 	
-	private ArrayList<String> pathList;
+	private static ArrayList<String> pathList = new ArrayList<String>();
 	
-	public PathStorage() {
-		pathList = new ArrayList<String>();
-	}
-	
-	public ArrayList<String> getList() {
+	public static ArrayList<String> getList() {
 		return pathList;
 	}
 	
-	private int determineOptimalLength() {  //find the shortest string
+	private static int determineOptimalLength() {  //find the shortest string
 		int optimal = pathList.get(0).length();
 		for(String item : pathList) {
 			if (item.length()<optimal) {
@@ -29,7 +25,7 @@ public class PathStorage {
 		return optimal;
 	}
 	
-	public String getOptimalPath(int optimal) { //return the shortest path
+	public static String getOptimalPath() { //return the shortest path
 		int i = determineOptimalLength();
 		String returnable = null;
 		for (String item : pathList) {
@@ -39,6 +35,16 @@ public class PathStorage {
 		}
 		return returnable;
 	}
+	
+	public static boolean isFinallyDone(String path) {
+		for (String item : pathList) {
+			if (path.equals(item)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 	
 
