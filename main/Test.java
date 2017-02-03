@@ -13,8 +13,8 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		File input = new File("src/maze.txt");
-		File output = new File("src/output.txt");
+		File input = new File("maze.txt");
+		File output = new File("output.txt");
 		
 		Maze maze = new Maze(input);
 		Player player = new Player(maze.getLength(0), maze.getHeight());
