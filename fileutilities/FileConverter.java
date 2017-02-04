@@ -1,24 +1,28 @@
 package fileutilities;
 
+import java.io.BufferedReader;
+
 /*
  * Scanner and file are created in the main application method
  */
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 import objects.Point;
 
 public class FileConverter {
 
-	private File file;
 	private Scanner reader;
-	private Point[][] points;
+	private Point[][] points = new Point[6][6];
+	private File bf;
 
 	public FileConverter(File file) {
-		this.file = file;
 		try {
+			bf = file;
 			reader = new Scanner(file);
 		} catch (FileNotFoundException e) {
 			System.out.println("Couldn't locate a file");
@@ -45,11 +49,27 @@ public class FileConverter {
 	}
 
 	private int countRows() {
-		int count = 0;
-		while (reader.hasNextLine()) {
-			count++;
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(bf));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return count;
+		int lines = 0;
+		try {
+			while (reader.readLine() != null) lines++;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lines;
 	}
 
 }

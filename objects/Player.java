@@ -19,6 +19,7 @@ public class Player {
 	public Player(int boundX, int boundY) {  
 		x = 0;
 		y = 0;
+		direction = Direction.DOWN;
 		this.boundX = boundX;
 		this.boundY = boundY;
 	}

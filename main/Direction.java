@@ -38,7 +38,6 @@ public enum Direction {
 		return returnable;
 	}
 	
-	//ADD TURN LEFT AND REVERSE
 	
 	public Direction switchToLeft() {
 		Direction returnable = null;

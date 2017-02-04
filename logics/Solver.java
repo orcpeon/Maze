@@ -40,7 +40,7 @@ public class Solver {
 	
 	//is player on the exit?
 	private boolean isSolved() { 
-		return (player.getX()==maze.getLength(player.getY())-1 && player.getY()==maze.getHeight()-1);
+		return (player.getX()==maze.getLength(0)-1 && player.getY()==maze.getHeight()-1);
 	}
 	
 	
