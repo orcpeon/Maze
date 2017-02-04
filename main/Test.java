@@ -16,7 +16,10 @@ public class Test {
 		
 		File input = new File("maze.txt");
 		File output = new File("output.txt");
+<<<<<<< HEAD
 		output.createNewFile();
+=======
+>>>>>>> origin/master
 		
 		Maze maze = new Maze(input);
 		Player player = new Player(maze.getLength(0)-1, maze.getHeight()-1);
