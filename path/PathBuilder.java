@@ -20,7 +20,7 @@ public class PathBuilder {
 	}
 	
 	public String getString() {
-		return turnCount +"\n" + sb.toString();
+		return turnCount +"\n" + sb;
 	}
 	
 	public void clear() {

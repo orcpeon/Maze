@@ -28,6 +28,10 @@ public class Solver {
 		
 		while(true) {			
 		if (isSolved()) {			
+			System.out.println("Solved");
+			System.out.println(log.getString());
+			player.setX(0);
+			player.setY(0);
 			break;
 		}
 		
@@ -43,6 +47,9 @@ public class Solver {
 		return (player.getX()==maze.getLength(0)-1 && player.getY()==maze.getHeight()-1);
 	}
 	
+	public PathBuilder getPathBuilder() {
+		return this.log;
+	}
 	
 	
 	

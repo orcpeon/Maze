@@ -10,11 +10,11 @@ import path.PathStorage;
 public class Cycle {
 
 	private Solver solver;
-	private PathBuilder log;
+	//private PathBuilder log;
 
-	public Cycle(Solver solver, PathBuilder log) {
+	public Cycle(Solver solver/*, PathBuilder log*/) {
 		this.solver = solver;
-		this.log = log;
+	//	this.log = log;
 	}
 
 	/*
@@ -26,10 +26,12 @@ public class Cycle {
 	private void cycle() {
 		while (true) {
 			solver.step();
-			if (PathStorage.isFinallyDone(log.getString())) {
+			if (PathStorage.isFinallyDone(solver.getPathBuilder().getString())) {
 				break;
 			}
-			PathStorage.getList().add(log.getString());
+			PathStorage.getList().add(solver.getPathBuilder().getString());
+			System.out.println(PathStorage.getList());
+			solver.getPathBuilder().clear();
 		}		
 	}
 	

@@ -101,7 +101,7 @@ public class WallFollower {
 			}
 		}
 		if (currentDir == Direction.DOWN) {
-			if (currentY != player.getBoundX() && maze.getPoint(currentX + 1, currentY).getPassable()) {
+			if (currentX != player.getBoundX() && maze.getPoint(currentX + 1, currentY).getPassable()) {
 				return true;
 			}
 		}
@@ -122,8 +122,9 @@ public class WallFollower {
 	//setting the direction in which player will later move
 	public void setPlayerDirection() {
 		if (isDeadEnd()) {
+			
 			player.setDirection(player.getDirection().reverse()); //direction is reversed in only one situation: dead end
-			maze.getPoint(player.getY(), player.getX()).setPassable(false);  //so in order to avoid the infinite loop we're marking the point unpassable			
+			maze.getPoint(player.getX(), player.getY()).setPassable(false);  //so in order to avoid the infinite loop we're marking the point unpassable			
 		} else	if (canMoveRight()) {
 			player.setDirection(player.getDirection().switchToRight());
 		} else if (!canMoveRight() && canMoveForward()) {

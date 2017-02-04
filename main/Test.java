@@ -24,7 +24,7 @@ public class Test {
 	//	WallFollower wallFollower = new WallFollower(player, maze);
 		PathBuilder log = new PathBuilder();
 		Solver solver = new Solver(player, maze);
-		Cycle cycle = new Cycle(solver, log);
+		Cycle cycle = new Cycle(solver);
 		FileHandler handler = new FileHandler();
 		
 		handler.writeToFile(output, cycle.determineOptimalPath());
