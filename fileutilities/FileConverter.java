@@ -51,9 +51,11 @@ public class FileConverter {
 		return points;
 	}
 	
-	private int countColumns() throws FileNotFoundException {
+	private int countColumns() throws FileNotFoundException { //dont' ask
 		Scanner readerT = new Scanner(bf);		
-		return readerT.nextLine().length();
+		int returnable =readerT.nextLine().length();
+		reader.close();
+		return returnable;
 	}
 
 	private int countRows() {
