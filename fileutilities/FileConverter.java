@@ -15,15 +15,18 @@ import java.util.Scanner;
 import objects.Point;
 
 public class FileConverter {
-
+/*
+ * 
+ */
 	private Scanner reader;
-	private Point[][] points = new Point[6][6];
+	private Point[][] points;
 	private File bf;
 
 	public FileConverter(File file) {
 		try {
 			bf = file;
 			reader = new Scanner(file);
+			points = new Point[countRows()][countColumns()];
 		} catch (FileNotFoundException e) {
 			System.out.println("Couldn't locate a file");
 			e.printStackTrace();
@@ -46,6 +49,11 @@ public class FileConverter {
 
 	public Point[][] getPoints() {
 		return points;
+	}
+	
+	private int countColumns() throws FileNotFoundException {
+		Scanner readerT = new Scanner(bf);		
+		return readerT.nextLine().length();
 	}
 
 	private int countRows() {
