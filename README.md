@@ -1,5 +1,4 @@
 # Maze
-Test task for SoftClub
 
 
 The way it works is the maze is read from tha input file and consists of Point objects, which all have x, y coordinates and boolean variable, that determines if the Point is passable or not. Wall are unpassable, dead end are marked as unpassable in the process. Every turn is recorded to the path string.
